@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // 1. PostListPage 컴포넌트를 추가한다.
 import PostListPage from '@/pages/PostListPage'
+import PostViewPage from '@/pages/PostViewPage'
 
 Vue.use(Router)
 
@@ -14,5 +15,12 @@ export default new Router({
       name: 'PostListPage',
       component: PostListPage
     },
+    {
+      path: '/post/:postId',
+      name: 'PostViewPage',
+      component: PostViewPage,
+      // props 옵션을 true로 설정한다.
+      props: true
+    }
   ]
 })
