@@ -9,6 +9,8 @@
 
 <script>
 import SigninForm from '@/components/SigninForm'
+// import api from '@/api'
+import { mapActions } from 'vuex'
 
 export default {
     name: 'Signin',
@@ -18,8 +20,21 @@ export default {
     },
     methods: {
         onSubmit (payload) {
-            console.log(payload)
-        }
+            // /auth/signin 엔드포인트로 사용자가 입력한 email, password 값을 보낸다.
+            this.signin(payload)
+                .then(response => {
+                    alert('로그인이 완료되었습니다.')
+                    this.$router.push({ name: 'PostListPage' })
+                })
+                .catch(error => {
+                    // 로그인에 실패할 경우 사용자에게 에러 원인을 알려준다.
+                    alert(error.response.data.msg)
+                })
+        },
+        // signin 액션을 컴포넌트에 등록한다.
+        ...mapActions([ 
+            'signin' 
+        ]),
     }
 }
 </script>
