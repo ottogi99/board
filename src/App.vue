@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <router-view/>
+    <!-- header라는 이름을 부여받은 roter-view 컴포넌트 -->
+    <router-view name="header" />
+    <!-- 이름이 없는 router-view 컴포넌트는 자동으로 default라는 이름을 부여 받는다. -->
+    <router-view />
   </div>
 </template>
 

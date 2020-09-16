@@ -4,6 +4,7 @@
         <!-- 이 부분을 옮겨준다 -->
         <!-- 자식 컴포넌트 props를 통해 posts 데이터를 내려준다. -->
         <post-list :posts="posts"/>
+        <router-link :to="{ name: 'PostCreatePage' }">글쓰기</router-link>
     </div>
 </template>
 
